@@ -1,0 +1,29 @@
+ 
+    body { 
+      margin: 0;
+      text-align: center; 
+      font-family: Arial, sans-serif; 
+    }
+
+    
+    .banner img {
+      width: 100%;       
+      height: 300px;     
+      object-fit: cover; 
+      display: block;
+    }
+
+    nav {
+      margin: 20px 0;
+    }
+    nav a {
+      margin: 0 10px; 
+      text-decoration: none; 
+      color: black; 
+      font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
+    
+    .products img {
+      margin: 10px;
+    }
