@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rohit's Validation Form</title>
+  <style >
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+      border-radius: 2px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+    input, textarea {
+      display: block;
+      margin-bottom: 10px;
+      padding: 6px;
+      width: 250px;
+      margin: 0 auto; 
+    }
+    button {
+      padding: 8px 16px;
+      background: purple;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Admission Form</h2>
+  <form id="myForm">
+    
+    <label>Full Name:</label>
+    <input type="text" id="name" oninput="validateName()" onchange="validateName()">
+    <span id="nameError" class="error"></span><br><br>
+
+    
+    <label>Age (Eligible age: 20 to 30 years):</label>
+    <input type="number" id="age" min="20" max="30" oninput="validateAge()" onchange="validateAge()">
+    <span id="ageError" class="error"></span><br><br>
+
+
+    
+    <label>Date of Birth (Please Enter Current or Past date only):</label>
+    <input type="date" id="dob" onchange="validateDOB()" oninput="validateDOB()">
+    <span id="dobError" class="error"></span><br><br>
+
+    <label>Address (Please Enter Max 100 chars only):</label>
+    <textarea id="address" rows="4" oninput="validateAddress()" onchange="validateAddress()"></textarea>
+    <span id="addressError" class="error"></span><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    
+    function validateName() {
+      const name = document.getElementById("name").value.trim();
+      const error = document.getElementById("nameError");
+      if (name.length < 4 || name.length > 30) {
+        error.textContent = "Name must be 4 to 30 characters long.";
+        return false;
+      }
+      error.textContent = "";
+      return true;
+    }
+
+    
+    function validateAge() {
+      const age = parseInt(document.getElementById("age").value);
+      const error = document.getElementById("ageError");
+      if (isNaN(age) || age < 20 || age > 30) {
+        error.textContent = "Age must be between 20 and 30.";
+        return false;
+      }
+      error.textContent = "";
+      return true;
+    }
+
+  
+    function validateDOB() {
+      const dob = new Date(document.getElementById("dob").value);
+      const today = new Date();
+      const error = document.getElementById("dobError");
+      if (dob >= today) {
+        error.textContent = "Date must be a past date.";
+        return false;
+      }
+      error.textContent = "";
+      return true;
+    }
+
+   
+    function validateAddress() {
+      const address = document.getElementById("address").value.trim();
+      const error = document.getElementById("addressError");
+      if (address.length > 100) {
+        error.textContent = "Address cannot exceed 100 characters.";
+        return false;
+      }
+      if (address.length === 0) {
+        error.textContent = "Address cannot be empty.";
+        return false;
+      }
+      error.textContent = "";
+      return true;
+    }
+
+    
+    document.getElementById("myForm").onsubmit = function(event) {
+      if (!validateName() || !validateAge() || !validateDOB() || !validateAddress()) {
+        event.preventDefault(); 
+        alert("Please fix the errors before submitting.");
+      } else {
+        alert("Form submitted successfully!");
+      }
+    };
+  </script>
+</body>
+</html>
