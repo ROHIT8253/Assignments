@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+ 
+<body class="container">
+    <button id="btn" class="my-5">Show data</button>
+ 
+    <div class="spinner-border" id="spinner" style="display: none;" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+ 
+    <div id="table-container"></div>
+ 
+    
+     <form action="" class="text-dark my-5" id="form">
+        <label for="id" style="width: 50px;">Id</label>
+        <input type="number" id="id">
+        <br><br>
+        <label for="title" style="width: 50px;">Title</label>
+        <input type="text" id="title">
+        <br><br>
+        <label for="body" style="width: 50px;">Body</label>
+        <input type="text" id="body">
+        <br><br>
+        <input type="submit">
+     </form>
+ 
+    <script>
+        let btn = document.getElementById("btn");
+        let spinner = document.getElementById("spinner");
+        let table = document.getElementById("table-container");
+        let form = document.getElementById("form");
+ 
+        btn.addEventListener('click', showData);
+        form.addEventListener('submit', addData);
+ 
+        async function showData() {
+            spinner.style.display = "block";
+ 
+            let data = await fetch("http://localhost:3000/users");
+            let result = await data.json();
+           
+            spinner.style.display = "none";
+ 
+            let tableContainer = `<table class="table table-border table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    <th>Body</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${result.map(e => `
+                                    <tr>
+                                        <td>${e.id}</td>
+                                        <td>${e.title}</td>
+                                        <td>${e.body}</td>
+                                        <td><button onclick="deleteData(${e.id})">Delete ${e.id}</button></td>
+                                    </tr>
+                                `).join("")}
+                            </tbody>
+                        </table>`;
+ 
+ 
+            table.innerHTML = tableContainer;
+        }
+ 
+        async function addData(){
+            let id = document.getElementById("id").value;
+            let title = document.getElementById("title").value;
+            let body = document.getElementById("body").value;
+ 
+            if(!id || !title || !body){
+                alert("Fields missing");
+                return;
+            }
+ 
+            let addedData = {
+                id,
+                title,
+                body
+            };
+ 
+            await fetch("http://localhost:3000/users", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(addedData)
+            });
+        }
+ 
+        async function deleteData(id){
+            await fetch(`http://localhost:3000/users/${id}`, {
+                method: "delete"
+            });
+        }
+    </script>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+ 
+</html>
+ 
