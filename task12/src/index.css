@@ -1,0 +1,27 @@
+.card {
+  width: 200px;          /* smaller width */
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  height: 150px;         
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 8px;          
+}
+
+.card-title {
+  font-size: 0.95rem;  
+  margin-bottom: 4px;
+}
+
+.card-text {
+  font-size: 0.8rem;     
+  margin: 2px 0;
+}

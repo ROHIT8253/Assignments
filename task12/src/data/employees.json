@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Sundar Pichai",
+    "age": 29,
+    "role": "Software Engineer",
+    "image": "https://images.financialexpressdigital.com/2025/03/Google-CEO-Sundar-Pichai.png"
+  },
+  {
+    "id": 2,
+    "name": "Elon Musk",
+    "age": 25,
+    "role": "Data Analyst",
+    "image": "https://grocapitus.com/wp-content/uploads/elon-musk-bg-opt.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Rohit Mehta",
+    "age": 32,
+    "role": "Project Manager",
+    "image": "https://tse2.mm.bing.net/th/id/OIP.c4lq_5c41NvhE1p29QK-rwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": 4,
+    "name": "Neha Gupta",
+    "age": 27,
+    "role": "UI/UX Designer",
+    "image": "https://randomuser.me/api/portraits/women/14.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Arjun Nair",
+    "age": 30,
+    "role": "DevOps Engineer",
+    "image": "https://img.freepik.com/fotos-premium/imagen-mark-zuckerberg-ceo-facebook-instagram_485374-970.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Samsung CEO",
+    "age": 24,
+    "role": "Business Analyst",
+    "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2192184336.jpg?c=16x9&q=h_833,w_1480,c_fill"
+  },
+  {
+    "id": 7,
+    "name": "Vikram Singh",
+    "age": 35,
+    "role": "Database Administrator",
+    "image": "https://img.freepik.com/premium-photo/portrait-businessman-ceo-standing-with-black-background_146508-6548.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Anil Iyer",
+    "age": 26,
+    "role": "Machine Learning Engineer",
+    "image": "https://img.freepik.com/premium-photo/portrait-businessman-ceo-standing-with-black-background_146508-6534.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Karan Patel",
+    "age": 31,
+    "role": "Cloud Architect",
+    "image": "https://randomuser.me/api/portraits/men/19.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Meera Reddy",
+    "age": 28,
+    "role": "Quality Assurance Engineer",
+    "image": "https://randomuser.me/api/portraits/women/20.jpg"
+  }
+]
